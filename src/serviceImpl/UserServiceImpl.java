@@ -38,6 +38,7 @@ public class UserServiceImpl implements CommonService<User>, UserService {
         userList.remove(id - 1);
     }
 
+
     @Override
     public void update(int id, User object) {
         User user = userList.get(id - 1);
@@ -54,7 +55,7 @@ public class UserServiceImpl implements CommonService<User>, UserService {
 
     @Override
     public List<User> getAllUserByAge(int age) {
-        return List.of();
+        return userList.stream().filter(user-> user.getAge() > age).toList();
     }
 
     @Override
